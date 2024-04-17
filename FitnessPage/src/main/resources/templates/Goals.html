@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+ <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet"/>
+</head>
+<body>
+	<style>
+	
+.navigbar {
+	background-color: black;
+	height: 50px;
+	color: white;
+	padding: 10px;
+}
+
+.logo {
+	margin-top: 7px;
+	margin-left: 30px;
+	font-size: 30px;
+}
+
+li, h1, ul {
+	display: flex;
+}
+
+ul {
+	margin-left: 50%;
+	margin-top: -20px;
+}
+
+li a {
+	color: white;
+	cursor: pointer;
+	padding: 1px;
+	margin-left: 55px;
+	text-decoration: none;
+}
+
+li a:hover {
+	color: grey;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+   border: 1px solid black;
+   margin-top:80px;
+  
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+th, td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align:center;
+}
+
+</style>
+	<nav>
+		<div class="navigbar">
+			<div class="logo">Fitness Tracker</div>
+			<ul>
+				<li><a href="/">Home </a></li>
+				<li><a href="Goals">Goals</a></li>
+				<li><a href="Today_Task">Today Task</a></li>
+				<li><a href="Set_Goals">Set Goals</a></li>
+			</ul>
+		</div>
+	</nav>
+	<div class="container">
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">S_No</th>
+				<th scope="col"> Task_Name</th>
+				<th scope="col">Task</th>
+				<th scope="col">Counts</th>
+				<th scope="col">Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			 <tr th:each="f:${ftrack}">
+				<td th:text="${f.S_No}"></td>
+				<td th:text="${f.Task_Name}"></td>
+				<td th:text="${f.Task}"></td>
+				<td th:text="${f.Counts}"></td>
+			 <td> <a style="padding-right:10px" th:href="@{/todayTasks/{S_No}(S_No=${f.S_No})}"><button >Add to Today Task </button></a>
+			 	<a style="color:blue;padding-left:10px " th:href="@{/Set_Goals}"><i class="ri-edit-box-line ms-8"></i></a>
+			 </td>
+			
+			</tr>   
+			
+		</tbody>
+	</table>
+	</div>
+</body>
+</html>

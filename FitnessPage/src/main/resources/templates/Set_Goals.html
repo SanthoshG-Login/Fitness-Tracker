@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org">
+<head >
+<meta charset="ISO-8859-1">
+  
+<title>Insert title here</title>
+</head>
+<body>
+	<style>
+.navigbar {
+	background-color: black;
+	height: 50px;
+	color: white;
+	padding: 10px;
+}
+
+.logo {
+	margin-top: 7px;
+	margin-left: 30px;
+	font-size: 30px;
+}
+
+li, h1, ul {
+	display: flex;
+}
+
+ul {
+	margin-left: 50%;
+	margin-top: -20px;
+}
+
+li a {
+	color: white;
+	cursor: pointer;
+	padding: 1px;
+	margin-left: 55px;
+	text-decoration: none;
+}
+
+li a:hover {
+	color: grey;
+}
+.box{
+ padding:30px;
+ font-size:20px;
+}
+.text{
+	margin-left:45%;
+}
+.Container{
+	border: 2px solid black;
+	margin-top:60px;
+	text-align:center;
+	padding:40px;
+}
+.submit{
+	text-align:center;
+}
+
+</style>
+	<nav>
+		<div class="navigbar">
+			<div class="logo">Fitness Tracker</div>
+			<ul>
+				<li><a href="/">Home </a></li>
+				<li><a href="Goals">Goals</a></li>
+				<li><a href="Today_Task">Today Task</a></li>
+				<li><a href="Set_Goals">Set Goals</a></li>
+			</ul>
+		</div>
+	</nav>
+	<div class="Container" >
+	 	<h1 class="text">Set Goals</h1>
+		<form class="Border" action="/save" method="post">
+			<div class="box">
+				<label for="Task_Name" class="form-label">Task_Name</label> <input
+					type="text" class="form-control" name="Task_Name">
+			</div>
+			<div class="box">
+				<label for="Task" class="form-label">Task</label> <input
+					type="text" class="form-control" name="Task">
+			</div>
+			<div class="box">
+				<label for="Counts" class="form-label">Counts</label> <input
+					type="text" class="form-control" name="Counts">
+			</div>
+			    	<button type="submit" class="submit">Submit</button> 
+		</form>
+	</div>
+	
+	 </body>
+</html>
